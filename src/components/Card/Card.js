@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const Card = () => {
   const [mainCard, setmainCard] = useState([]);
   const [card, setCard] = useState([]);
-  const [deleteProduct, setdeleteProduct] = useState([]);
 
   const [isModale, setisModale] = useState(false);
   const addCartHandler = (item) => {
@@ -17,11 +16,6 @@ const Card = () => {
   };
   const modalHandler = () => {
     setisModale(!isModale);
-  };
-
-  const onDelete = (id) => {
-    let res = card.filter((item) => item.id !== id);
-    setdeleteProduct(res);
   };
 
   useEffect(() => {
@@ -132,8 +126,7 @@ const Card = () => {
                     </div>
                     <button
                       type="button"
-                      className="btn btn-primary position-relative"
-                      onDelete={() => onDelete(item.id)}>
+                      className="btn btn-primary position-relative">
                       Delete
                     </button>
                   </div>
