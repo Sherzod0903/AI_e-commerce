@@ -6,16 +6,24 @@ import { toast } from "react-toastify";
 const Card = () => {
   const [mainCard, setmainCard] = useState([]);
   const [card, setCard] = useState([]);
+  const [deleteProduct, setdeleteProduct] = useState([]);
+
   const [isModale, setisModale] = useState(false);
   const addCartHandler = (item) => {
     setCard((prev) => {
       return [...prev, item];
     });
-    toast.dark("Product added succesully");
+    toast.dark("Product added succesully,you can say 'Open my card'");
   };
   const modalHandler = () => {
     setisModale(!isModale);
   };
+
+  const onDelete = (id) => {
+    let res = card.filter((item) => item.id !== id);
+    setdeleteProduct(res);
+  };
+
   useEffect(() => {
     alanBtn({
       key: "9d9b341b12cb4183896f52ce687e1fd22e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -122,6 +130,12 @@ const Card = () => {
                         </div>
                       </div>
                     </div>
+                    <button
+                      type="button"
+                      className="btn btn-primary position-relative"
+                      onDelete={() => onDelete(item.id)}>
+                      Delete
+                    </button>
                   </div>
                 ))}
               </div>
