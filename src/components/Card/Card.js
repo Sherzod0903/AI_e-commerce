@@ -7,7 +7,6 @@ const Card = () => {
   const [mainCard, setmainCard] = useState([]);
   const [card, setCard] = useState([]);
   const [isModale, setisModale] = useState(false);
-
   const addCartHandler = (item) => {
     setCard((prev) => {
       return [...prev, item];
